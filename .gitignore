@@ -10,3 +10,9 @@ app/client/build/
 # macOS
 .DS_Store
 .python-version
+
+# Windows batch files
+*.bat
+
+# VSCode
+.vscode/
