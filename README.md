@@ -1,19 +1,20 @@
 # Quill
 
-## *Registration, for hackers!*
+## _Registration, for hackers!_
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code-of-conduct.md)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Dependencies](https://david-dm.org/techx/quill.svg)](https://app.dependabot.com/accounts/krubenok/repos/204301089)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ecd84351d8444ca29d05756ac7f40fc0)](https://www.codacy.com/manual/krubenok/quill?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=krubenok/quill&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ecd84351d8444ca29d05756ac7f40fc0)](https://www.codacy.com/manual/krubenok/quill?utm_source=github.com&utm_medium=referral&utm_content=krubenok/quill&utm_campaign=Badge_Grade)
 
 Quill is a registration system designed especially for hackathons. For hackers, it’s a clean and streamlined interface to submit registration and confirmation information. For hackathon organizers, it’s an easy way to manage applications, view registration stats, and more!
 
 ![Login Splash](./docs/images/screenshots/login.png)
 
 ## Table of Contents
+
 - [Quill](#quill)
-  - [*Registration, for hackers!*](#registration-for-hackers)
+  - [_Registration, for hackers!_](#registration-for-hackers)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
     - [Quill for Hackers](#quill-for-hackers)
@@ -61,7 +62,7 @@ Quill is a registration system designed especially for hackathons. For hackers, 
 
 After users login, the Dashboard displays the user’s application status and status-specific prompts to resend a verification email, view/edit their application or confirmation forms.
 
-*Statuses:*
+_Statuses:_
 
 - Unverified: users have not verified the email address they registered with
 - Incomplete, registration open: the user has not submitted their application, but the registration deadline has not passed
@@ -98,7 +99,7 @@ The Stats tab summarizes useful registration statistics on the number of users i
 
 ![Users table](./docs/images/screenshots/admin-users.png)
 
-*The Users tab displays a table of users where admins can:*
+_The Users tab displays a table of users where admins can:_
 
 1. Search for a user by name
 2. Quick-view user applications in a pop-up modal
@@ -132,7 +133,7 @@ node -v
 mongo --version
 ```
 
-*How to upgrade to latest releases:*
+_How to upgrade to latest releases:_
 
 - Node.js: <https://nodejs.org/en/download/>
 - MongoDB: <https://docs.mongodb.com/manual/administration/install-community/>
@@ -156,6 +157,12 @@ Ideally, you should run MongoDB as a daemon with a secure configuration (with mo
 ```bash
 mkdir db
 mongod --dbpath db --bind_ip 127.0.0.1
+```
+
+Within the .env file, set the DATABASE variable as below for local testing.
+
+```
+DATABASE='mongodb://localhost'
 ```
 
 #### SMTP
@@ -188,11 +195,11 @@ A dedicated SMTP provider is absolutely required if you want Quill to work for y
 
 #### Quill
 
-There are also several options for hosting Quill itself. You can use Heroku by clicking the __Deploy to Heroku__ button above where, after making a Heroku account, you will be able to set the configuration variables and deploy Quill. A Dockerfile has also been provided to make it easy to run Quill in a Docker container either on your own server or with your preferred cloud service provider. Don't forget to publish the container's port `3000` to the host machine. If using the command line, this is done by using the `-p` flag and specifying which port on the host machine should redirect to port 3000 on the container.
+There are also several options for hosting Quill itself. You can use Heroku by clicking the **Deploy to Heroku** button above where, after making a Heroku account, you will be able to set the configuration variables and deploy Quill. A Dockerfile has also been provided to make it easy to run Quill in a Docker container either on your own server or with your preferred cloud service provider. Don't forget to publish the container's port `3000` to the host machine. If using the command line, this is done by using the `-p` flag and specifying which port on the host machine should redirect to port 3000 on the container.
 
 ## Customizing for your event
 
-*_If you're using Quill for your event, please add yourself to this [list][users]. It takes less than a minute, but knowing that our software is helping real events keeps us going ♥_*
+_*If you're using Quill for your event, please add yourself to this [list][users]. It takes less than a minute, but knowing that our software is helping real events keeps us going ♥*_
 
 ### Copy
 
@@ -223,24 +230,24 @@ To customize the verification and confirmation emails for your event, put your n
 
 ### Build and Test
 
-`.github/workflows/build.yml` contains a Github Action for building and running the project. The only test currently run is to check that a GET request of `/login` returns a status code `200`. This should be expanded in future with thorough unit testing. The Github action spawns a Docker instance of MongoDB for the application to connect to and utilizes the NodeJS version as specified in the `.nvmrc` file. *This action is run automatically on each push to any branch*.
+`.github/workflows/build.yml` contains a Github Action for building and running the project. The only test currently run is to check that a GET request of `/login` returns a status code `200`. This should be expanded in future with thorough unit testing. The Github action spawns a Docker instance of MongoDB for the application to connect to and utilizes the NodeJS version as specified in the `.nvmrc` file. _This action is run automatically on each push to any branch_.
 
 ### Lint
 
-`.github/workflows/link.yml` contains a Github Action for linting the project. The action is currently using ESLint to achieve this with a *very* minimal ruleset (currently only checking for semi-colon rules). This should be modified to include an opinionated style checker such as [AirBnb's](https://github.com/airbnb/javascript). *This action is run automatically on each push to any branch*.
+`.github/workflows/link.yml` contains a Github Action for linting the project. The action is currently using ESLint to achieve this with a _very_ minimal ruleset (currently only checking for semi-colon rules). This should be modified to include an opinionated style checker such as [AirBnb's](https://github.com/airbnb/javascript). _This action is run automatically on each push to any branch_.
 
 ### Publish to Docker Hub
 
-`.github/workflows/dockerimage.yml` conatins a Github Action for building and publishing a Docker Image to the Docker Hub. The action takes the docker file at `.Dockerfile` and publishes it to the account specified in the Github Secrets. *This action is run automatically on each merge to the `master` branch*
+`.github/workflows/dockerimage.yml` conatins a Github Action for building and publishing a Docker Image to the Docker Hub. The action takes the docker file at `.Dockerfile` and publishes it to the account specified in the Github Secrets. _This action is run automatically on each merge to the `master` branch_
 
 **[The following secrets need to be added to the repository](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)**
 
 - DOCKER_USER => your docker hub username
-- DOCKER_PASS => your docker hub password*
+- DOCKER_PASS => your docker hub password\*
 
 **[Using a Token rather than a password for this is probably a good idea.](https://www.docker.com/blog/docker-hub-new-personal-access-tokens/)**
 
-This will output an image in Docker Hub located at $DOCKER_USER/quill:latest
+This will output an image in Docker Hub located at \$DOCKER_USER/quill:latest
 
 ### Automated Dependency Updates
 
@@ -248,23 +255,25 @@ The repository has been signed up to Dependabot, an automated dependency managem
 
 ### Notifications [on Push]
 
-This project has been set up to run workflows that send notifications to a Discord server and a Slack workspace when changes are pushed. The secrets required to run these must be set by the admin according to the documentation of each implementation (configuration links). 
+This project has been set up to run workflows that send notifications to a Discord server and a Slack workspace when changes are pushed. The secrets required to run these must be set by the admin according to the documentation of each implementation (configuration links).
 
-* `.yml` file information has already been added to the repository under `.github/workflows/notify.yml` and individual platforms may be removed by editing this file.
+- `.yml` file information has already been added to the repository under `.github/workflows/notify.yml` and individual platforms may be removed by editing this file.
 
 ##### Discord Notification
+
 [Configuring the action to send notifications to your organization's Discord server can be found here.](https://github.com/Ilshidur/action-discord)
 
-* Note that leaving `/github` at the end of the `DISCORD_WEBHOOK` token (contrary to what the action recommends)  will use the default GitHub webhook settings in addition to sending this action's notification. We suggest leaving it if there is no webhook already configured.
+- Note that leaving `/github` at the end of the `DISCORD_WEBHOOK` token (contrary to what the action recommends) will use the default GitHub webhook settings in addition to sending this action's notification. We suggest leaving it if there is no webhook already configured.
 
 ##### Slack Notification
+
 [Configuring the action to send notifications to your organization's Slack workspace can be found here.](https://github.com/marketplace/actions/slack-notify)
 
 ## Testing
 
 ### Jest
 
-Basic Jest testing has been implemented in the `test.js` file. Currently the only test is to check that the `/login` page returns a HTTP 200 status code. These tests can be run using the `npm run test` command. More Jest tests including snapshots and unit tests should be added as features are created or updated. 
+Basic Jest testing has been implemented in the `test.js` file. Currently the only test is to check that the `/login` page returns a HTTP 200 status code. These tests can be run using the `npm run test` command. More Jest tests including snapshots and unit tests should be added as features are created or updated.
 
 ### Accessibility
 
@@ -275,7 +284,6 @@ An accessibility testing tool, pa11y-ci, has been provided and configured for th
 If your contribution adds any new pages to Quill, please add them to `.pa11yci` to make sure that these pages are covered by the accessibility tests. If your new pages are accessed as a non-logged-in user, add them at the beginning of the URL list. If they are accessed when logged in, add them after the URL with actions to log in.
 
 For more information on pa11y-ci, please visit [pa11y-ci] and [pa11y], in particular the [section on actions][pa11y-actions].
-
 
 ## Contributing
 
@@ -316,6 +324,7 @@ Support this project with your organization. Your logo will show up here with a 
 <a href="https://opencollective.com/techx/organization/9/website"><img src="https://opencollective.com/techx/organization/9/avatar.svg"></a>
 
 # License
+
 Copyright (c) 2015-2016 Edwin Zhang (https://github.com/ehzhang). Released under AGPLv3. See [`LICENSE.txt`][license] for details.
 
 [contribute]: https://github.com/techx/quill/blob/master/CONTRIBUTING.md
