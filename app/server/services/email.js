@@ -28,7 +28,7 @@ var NODE_ENV = process.env.NODE_ENV;
 var options = {
   host: EMAIL_HOST,
   port: EMAIL_PORT,
-  secureConnection: false,
+  secureConnection: true,
   auth: {
     user: EMAIL_USER,
     pass: EMAIL_PASS,

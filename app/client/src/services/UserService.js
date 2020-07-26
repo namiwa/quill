@@ -10,7 +10,6 @@ angular.module("reg").factory("UserService", [
       // Basic Actions
       // ----------------------
       getCurrentUser: function () {
-        console.log(Session.getUserId());
         return $http.get(base + Session.getUserId());
       },
 
@@ -35,7 +34,6 @@ angular.module("reg").factory("UserService", [
       },
 
       updateProfile: function (id, profile) {
-        console.log(id, profile);
         return $http.put(base + id + "/profile", {
           profile: profile,
         });
