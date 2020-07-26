@@ -1,21 +1,32 @@
-require('dotenv').load();
-var mongoose        = require('mongoose');
-var database        = process.env.DATABASE || { url: "mongodb://localhost:27017"};
-var jwt             = require('jsonwebtoken');
-mongoose.connect(database.url);
+require("dotenv").load();
+var mongoose = require("mongoose");
+var database = process.env.DATABASE || { url: "mongodb://localhost:27017" };
+var jwt = require("jsonwebtoken");
 
-var User = require('../app/server/models/User');
+const options = {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+};
 
-var email = 'hacker@school.edu';
+mongoose.connect(database.url, options);
 
-User.findOne({
-  email: email
-}, function(err, user){
-  console.log(user.generateEmailVerificationToken());
-  console.log(user.generateAuthToken());
+var User = require("../app/server/models/User");
 
-  var temp = user.generateTempAuthToken();
-  console.log(temp);
+var email = "hacker@school.edu";
 
-  console.log(jwt.verify(temp, process.env.JWT_SECRET));
-});
+User.findOne(
+  {
+    email: email,
+  },
+  function (err, user) {
+    console.log(user.generateEmailVerificationToken());
+    console.log(user.generateAuthToken());
+
+    var temp = user.generateTempAuthToken();
+    console.log(temp);
+
+    console.log(jwt.verify(temp, process.env.JWT_SECRET));
+  }
+);
