@@ -131,30 +131,33 @@
 
       <div class="field">
         <label>
-          What would you like to learn or get out of HackMIT? (optional)
+          What would you like to learn or get out of ideate2020? (optional)
         </label>
         <textarea ng-model="selectedUser.profile.essay"> </textarea>
       </div>
 
-      <div class="field" ng-hide="isMitStudent">
-        <p>
-          You must be a student of NUS to participate in this hackathon!
-        </p>
-        <p>
-          <strong>
-            If you are a non-NUS student, you would not be able to participate
-            in the hackathon.
-          </strong>
-        </p>
-        <div class="ui checkbox">
-          <input
-            type="checkbox"
-            id="adult"
-            ng-model="selectedUser.profile.adult"
-          />
-          <label for="adult">I am an NUS Student.</label>
-        </div>
-      </div>
+          <div class="field" ng-hide="isMitStudent">
+            <p>
+              Personal Data Disclosure:
+            <ul>
+              <li>You would also agree to receive important updates pertaining to matters via email.</li>
+              <li>All personal information will be kept confidential and be used only for this event.</li>
+              <li>Should you wish to withdraw your consent for us to contact you for the purposes stated above, please notify us
+                in writing to dcp.studentsclub@u.nus.edu. We will then remove your personal information from our database.
+                Please allow 3 business days for your withdrawal of consent to take effect.</li>
+            </ul>
+            </p>
+            <p>
+              <strong>
+                You would not be able to participate in this event if you do not consent to your data being collected for the
+                above purposes.
+              </strong>
+            </p>
+            <div class="ui checkbox">
+              <input type="checkbox" id="adult" ng-model="user.profile.adult" />
+              <label for="adult">I consent to providing my personal data for the above purposes.</label>
+            </div>
+          </div>
 
       <div class="field">
         <div
