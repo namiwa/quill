@@ -1,6 +1,6 @@
 const angular = require("angular");
 
-const deadline = "3 August 2020";
+const deadline = "8 August 2020";
 
 angular
   .module("reg")
